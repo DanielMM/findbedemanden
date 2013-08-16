@@ -1,0 +1,10 @@
+name = getoffer
+description = Helper functions from findbedemanden.dk
+core = 7.x
+package = Helper modules
+
+files[] = getoffer.module
+
+version = "7.x-1.0"
+core = "7.x"
+project = "findbedemanden"

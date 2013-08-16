@@ -1,0 +1,117 @@
+<?php
+/**
+ * @file
+ * Drupal module for findbedemanden.dk project.
+ *
+ * Allows user to ask for offers for funeral services from undertakers.
+ * 
+ */
+
+function getoffer_mail ($key, &$message, $params) {
+  switch ($key) {
+    case 'sendrequest':
+      // Set headers etc
+      //$message['to'] = 'foo@bar.com';
+      $message['subject'] = t('Hello');
+      $message['body'][] = t('Hello @username,', array('@username' => $params['username']));
+      $message['body'][] = t('The main part of the message.');
+      break;
+  }
+}
+
+function getoffer_action_info() {
+  return array(
+    'getoffer_dummy_action' => array(
+      'label' => t('My dummy action: does nothing'),
+      'type' => 'node',
+      'configurable' => FALSE,
+      'triggers' => array('any'),
+    ),
+    'getoffer_send_request_to_undertakers_action' => array(
+      'type' => 'node',
+      'label' => t('Send selected request to undertakers'),
+      'configurable' => TRUE,
+      'behavior' => array('changes_property'),
+      'triggers' => array('node_presave', 'node_insert', 'node_update'),
+    ),
+  );
+}
+
+function getoffer_dummy_action(&$entity, $context = array()) {
+
+  drupal_set_message(t('getoffer_dummy_action fired'));
+  watchdog('dummy action', 'getoffer_dummy_action fired.');
+}
+
+function getoffer_send_request_to_undertakers_action_form($context) {
+	/*
+	* We return a configuration form to set the requirements that will
+	* match this action before being executed. This is a regular Drupal form and
+	* may include any type of information you want, but all the fields of the
+	* form will be saved into the $context variable.
+	*
+	*/
+	$view = views_get_view('list_undertakers');
+	//$view->set_arguments(array());
+	$view->execute();
+
+	$options = array();
+	
+	foreach($view->result as $user){
+		$options[$user->uid] = $user->field_field_name[0]['rendered']['#markup'];
+	}
+
+	$form['undertakers'] = array(
+	'#title' => t('Undertakers'),
+	'#type' => 'checkboxes',
+	'#description' => t('Select the undertakers to receive this request.'),
+	'#options' => $options,
+	);
+	
+	// No more options, return the form.
+	return $form;
+	
+}
+
+function getoffer_send_request_to_undertakers_action_submit($form, $form_state) {
+	return array('undertakers' => $form_state['values']['undertakers']);
+}
+
+function getoffer_send_request_to_undertakers_action($node, $context){
+
+	// load the entity node to update the field_undertakers with the selected undertakers
+	//$wrapper = entity_metadata_wrapper('node', $node);
+	
+	foreach($context['undertakres'] as $undertaker){
+		if($undertaker != 0){
+			//$node->field_undertakers['und'][]['target_id'] = $undertaker;
+			//$user = user_load((int)$undertaker, true);
+			
+			//$wrapper->title->set('reset');
+			//$wrapper->save(true);
+		}
+	}
+	//node_save($node);
+	
+	//dpm($wrapper->field_undertakers->value());
+	
+	// send notification to undertakers
+	gettoffer_send_mail_to_undertakers($context);
+}
+
+function gettoffer_send_mail_to_undertakers($context){
+	$undertakers = $context['undertakers'];
+	$node = $context['node'];
+	
+	foreach ($undertakers as $undertaker){
+		if($undertaker != 0){
+			drupal_set_message(t('Request %nid sent to %undertaker.', array('%nid' => $node->nid, '%undertaker'=>$undertaker)));
+		}
+	}
+
+	$to = 'moisdaniel@yahoo.com';
+	$language = 'da';
+
+	//drupal_mail('getoffer', 'sendrequest', $to, $language, $params = array('username' => 'John Potato'), $from = NULL, $send = TRUE);
+	//dpm($undertakers);
+}
