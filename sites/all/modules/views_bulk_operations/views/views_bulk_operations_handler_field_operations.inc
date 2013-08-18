@@ -57,6 +57,7 @@ class views_bulk_operations_handler_field_operations extends views_handler_field
         'enable_select_all_pages' => array('default' => TRUE),
         'force_single' => array('default' => FALSE),
         'entity_load_capacity' => array('default' => 10),
+        'dont_batch' => array('default' => FALSE),
       ),
     );
     $options['vbo_operations'] = array(
@@ -137,6 +138,14 @@ class views_bulk_operations_handler_field_operations extends views_handler_field
         '#type' => 'checkbox',
         '#title' => t('Skip confirmation step'),
         '#default_value' => !empty($operation_options['skip_confirmation']),
+        '#dependency' => array(
+          $dom_id . '-selected' => array(1),
+        ),
+      );
+      $form['vbo_operations'][$operation_id]['dont_batch'] = array(
+        '#type' => 'checkbox',
+        '#title' => t("Don't use batch/queue"),
+        '#default_value' => !empty($operation_options['dont_batch']),
         '#dependency' => array(
           $dom_id . '-selected' => array(1),
         ),

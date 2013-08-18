@@ -703,9 +703,11 @@ function views_bulk_operations_form_submit($form, &$form_state) {
 function views_bulk_operations_execute($vbo, $operation, $selection, $select_all_pages = FALSE) {
   global $user;
 
+  $dont_batch = $operation->getAdminOption('dont_batch');
+
   // This is an aggregate operation, and it requires all rows to be selected.
   // Try to load them without a batch.
-  if ($operation->aggregate() && $select_all_pages) {
+  if ($select_all_pages && ($dont_batch || $operation->aggregate())) {
     views_bulk_operations_direct_adjust($selection, $vbo);
   }
 
@@ -713,6 +715,11 @@ function views_bulk_operations_execute($vbo, $operation, $selection, $select_all
   $options = array(
     'revision' => $vbo->revision,
     'entity_load_capacity' => $vbo->get_vbo_option('entity_load_capacity', 10),
+    'view_name' => $vbo->view->name,
+    'view_display' => $vbo->view->current_display,
+    'view_arguments' => $vbo->view->args,
+    'view_exposed_input' => $vbo->view->get_exposed_input(),
+    'caller_uri' => request_path(),
   );
   // Create an array of rows in the needed format.
   $rows = array();
@@ -738,6 +745,13 @@ function views_bulk_operations_execute($vbo, $operation, $selection, $select_all
   // Aggregate operations can only be executed directly.
   if ($operation->aggregate()) {
     views_bulk_operations_direct_process($operation, $rows, $options);
+    return;
+  }
+
+  // Execute all operations immediately without batch, but with separate executions.
+  if ($dont_batch) {
+    $options['view'] = $vbo->view;
+    views_bulk_operations_direct_process_singles($operation, $rows, $options);
     return;
   }
 
@@ -1015,6 +1029,7 @@ function views_bulk_operations_queue_item_process($queue_item_data, &$log = NULL
     $operation_context = array(
       'progress' => $row['position'],
       'rows' => $row['views_row'],
+      'options' => $options,
     );
     $operation->execute($entity, $operation_context);
 
@@ -1097,6 +1112,68 @@ function views_bulk_operations_direct_process($operation, $rows, $options) {
     }
   }
   $operation->execute($entities, $operation_context);
+
+  $context['results']['log'][] = t('Performed aggregate %operation on @items.', array(
+    '%operation' => $operation->label(),
+    '@items' => format_plural(count($entities), '1 item', '@count items'),
+  ));
+  $context['results']['progress'] += count($entities);
+
+  views_bulk_operations_execute_finished(TRUE, $context['results'], array());
+}
+
+/**
+ * Processes the passed rows directly (without batching and queueing) PER ITEM.
+ */
+function views_bulk_operations_direct_process_singles($operation, $rows, $options) {
+  @set_time_limit(0);
+
+  // Prepare an array of status information. Imitates the Batch API naming
+  // for consistency. Passed to views_bulk_operations_execute_finished().
+  $context = array();
+  $context['results']['progress'] = 0;
+  $context['results']['log'] = array();
+
+  $entity_type = $operation->entityType;
+  $entity_ids = array();
+  foreach ($rows as $row_index => $row) {
+    $entity_ids[] = $row['entity_id'];
+  }
+  $entities = _views_bulk_operations_entity_load($entity_type, $entity_ids, $options['revision']);
+
+  foreach ($entities as $id => $entity) {
+    if (!_views_bulk_operations_entity_access($operation, $entity_type, $entity)) {
+      $context['results']['log'][] = t('Skipped %operation on @type %title due to insufficient permissions.', array(
+        '%operation' => $operation->label(),
+        '@type' => $entity_type,
+        '%title' => _views_bulk_operations_entity_label($entity_type, $entity),
+      ));
+      unset($entities[$id]);
+    }
+  }
+  if (empty($entities)) {
+    return;
+  }
+
+  // Pass the selected rows to the operation if needed.
+  $operation_context = array(
+    'rows' => array(),
+    'progress' => array(
+      'current' => 0,
+      'total' => count($entities),
+    ),
+    'options' => $options,
+  );
+  if ($operation->needsRows()) {
+    foreach ($rows as $row_index => $row) {
+      $operation_context['rows'][$row_index] = $row['views_row'];
+    }
+  }
+
+  foreach ($entities as $entity) {
+    $operation_context['progress']['current']++;
+    $operation->execute($entity, $operation_context);
+  }
 
   $context['results']['log'][] = t('Performed aggregate %operation on @items.', array(
     '%operation' => $operation->label(),
