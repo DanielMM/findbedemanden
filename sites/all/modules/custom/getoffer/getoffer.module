@@ -32,7 +32,7 @@ function getoffer_action_info() {
       'label' => t('Send selected request to undertakers'),
       'configurable' => TRUE,
       'behavior' => array('changes_property'),
-      'triggers' => array('node_presave', 'node_insert', 'node_update'),
+      'triggers' => array('any'),
     ),
   );
 }
@@ -85,6 +85,9 @@ function getoffer_send_request_to_undertakers_action($node, $context){
 	// prepare empty array for the selected undertakres
 	$ut_list = array();
 	
+	// prepare empty array for storing current undertakers
+	$current_ut = array();
+	
 	// add only the selected undertakers to the array
 	foreach($context['undertakers'] as $undertaker){
 		if($undertaker != 0){	
@@ -92,8 +95,25 @@ function getoffer_send_request_to_undertakers_action($node, $context){
 		}
 	}
 	
+	// add current undertakers to the array
+	$current_undertakers = $request_wrapper->field_undertakers->value();
+	foreach($current_undertakers as $undertaker){
+		$current_ut[] = $undertaker->uid;
+	}
+	
+	// check if any of the new undertakers have already received the request
+	// otherwise add them to the queue to receive the request
+	foreach ($ut_list as $new_undertaker){
+		
+		// update the current list of undertakers with the newly selected ones
+		if(!in_array($new_undertaker, $current_ut)){
+			$current_ut[] = $new_undertaker;
+		}
+	}
+
 	// update the field_undertakers field with the array values to be saved in DB
-	$request_wrapper->field_undertakers->set($ut_list);
+	$request_wrapper->field_undertakers->set($current_ut);
+	dpm($request_wrapper->field_undertakers->value());	
 	
 	// change the status to reflect the current state
 	$request_wrapper->field_status->set('pending offers');
