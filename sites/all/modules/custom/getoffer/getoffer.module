@@ -28,9 +28,9 @@ function getoffer_action_info() {
       'triggers' => array('any'),
     ),
     'getoffer_send_request_to_undertakers_action' => array(
-      'type' => 'user',
+      'type' => 'node',
       'label' => t('Send selected request to undertakers'),
-      'configurable' => FALSE,
+      'configurable' => TRUE,
       'behavior' => array('changes_property'),
       'triggers' => array('node_presave', 'node_insert', 'node_update'),
     ),
@@ -42,7 +42,7 @@ function getoffer_dummy_action(&$entity, $context = array()) {
   drupal_set_message(t('getoffer_dummy_action fired'));
   watchdog('dummy action', 'getoffer_dummy_action fired.');
 }
-/*
+
 function getoffer_send_request_to_undertakers_action_form($context) {
 	/*
 	* We return a configuration form to set the requirements that will
@@ -51,7 +51,7 @@ function getoffer_send_request_to_undertakers_action_form($context) {
 	* form will be saved into the $context variable.
 	*
 	*/
-	/*
+	
 	$view = views_get_view('list_undertakers');
 	//$view->set_arguments(array());
 	$view->execute();
@@ -77,29 +77,29 @@ function getoffer_send_request_to_undertakers_action_form($context) {
 function getoffer_send_request_to_undertakers_action_submit($form, $form_state) {
 	return array('undertakers' => $form_state['values']['undertakers']);
 }
-*/
-function getoffer_send_request_to_undertakers_action($user, $context){
+
+function getoffer_send_request_to_undertakers_action($node, $context){
 	
 	// load the entity node (request) to update the field_undertakers with the selected undertakers
-	//$request_wrapper = entity_metadata_wrapper('node', $node);
-	dpm($context);
+	$request_wrapper = entity_metadata_wrapper('node', $node);
+	
 	// prepare empty array for the selected undertakres
 	$ut_list = array();
 	
 	// add only the selected undertakers to the array
-	/*foreach($context['undertakers'] as $undertaker){
+	foreach($context['undertakers'] as $undertaker){
 		if($undertaker != 0){	
 			$ut_list [] = $undertaker;
 		}
-	}*/
+	}
 	
 	// update the field_undertakers field with the array values to be saved in DB
-	//$request_wrapper->field_undertakers->set($context['user']->uid);
+	$request_wrapper->field_undertakers->set($ut_list);
 
 	// send notification to undertakers
-	//getoffer_send_mail_to_undertakers($context);
+	getoffer_send_mail_to_undertakers($context);
 }
-/*
+
 function getoffer_send_mail_to_undertakers($context){
 	$undertakers = $context['undertakers'];
 	$node = $context['node'];
@@ -115,4 +115,3 @@ function getoffer_send_mail_to_undertakers($context){
 
 	//drupal_mail('getoffer', 'sendrequest', $to, $language, $params = array('username' => 'John Potato'), $from = NULL, $send = TRUE);
 }
-*/
