@@ -52,8 +52,7 @@ function getoffer_send_request_to_undertakers_action_form($context) {
 	*
 	*/
 	
-	$view = views_get_view('list_undertakers');
-	//$view->set_arguments(array());
+	$view = views_get_view('list_undertakers');	
 	$view->execute();
 
 	$options = array();
@@ -95,7 +94,10 @@ function getoffer_send_request_to_undertakers_action($node, $context){
 	
 	// update the field_undertakers field with the array values to be saved in DB
 	$request_wrapper->field_undertakers->set($ut_list);
-
+	
+	// change the status to reflect the current state
+	$request_wrapper->field_status->set('pending offers');
+	
 	// send notification to undertakers
 	getoffer_send_mail_to_undertakers($context);
 }
