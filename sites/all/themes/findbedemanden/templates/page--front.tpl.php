@@ -156,23 +156,18 @@
     <!--.footer-columns -->
     <section class="row l-footer-columns">
       <?php if (!empty($page['footer_firstcolumn'])): ?>
-        <div class="footer-first large-3 columns">
+        <div class="footer-first large-4 columns">
           <?php print render($page['footer_firstcolumn']); ?>
         </div>
       <?php endif; ?>
       <?php if (!empty($page['footer_secondcolumn'])): ?>
-        <div class="footer-second large-3 columns">
+        <div class="footer-second large-4 columns">
           <?php print render($page['footer_secondcolumn']); ?>
         </div>
       <?php endif; ?>
       <?php if (!empty($page['footer_thirdcolumn'])): ?>
-        <div class="footer-third large-3 columns">
+        <div class="footer-third large-4 columns">
           <?php print render($page['footer_thirdcolumn']); ?>
-        </div>
-      <?php endif; ?>
-      <?php if (!empty($page['footer_fourthcolumn'])): ?>
-        <div class="footer-fourth large-3 columns">
-          <?php print render($page['footer_fourthcolumn']); ?>
         </div>
       <?php endif; ?>
     </section>
