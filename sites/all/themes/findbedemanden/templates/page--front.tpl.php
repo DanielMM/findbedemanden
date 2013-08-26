@@ -51,7 +51,6 @@
     </section>
     <?php endif; ?>
     <!-- End title, slogan and menu -->
-    <h1>this is front</h1>
 
   </header>
   <!--/.l-header -->
@@ -96,8 +95,19 @@
 
       <a id="main-content"></a>
 
-      <?php print render($page['content']); ?>
-    
+      <?php //print render($page['content']); ?>
+      <!--Main CTA-->
+        <section class="main-cta">
+          <div class="row">
+            <div class="large-6 large-offset-1 columns content">
+              <h1>Modtag tilbud fra 3 bedemand</h1>
+              <h2>Vi hjaelper dig med at finde 3 tilbud fra lokale bedemand - Gratis og uforpilgtende.</h2>
+              <a href="#" class="button primary radius full-width">Start her</a>
+              <p>Udfyld formularen med dine onsker, sa har du 3 tilbud i din mailindbakke, inden 24 timer.</p>
+            </div>
+          </div>
+        </section>
+      <!--/Main CTA-->
     </div>
     <!--/.main region -->
 
@@ -108,7 +118,7 @@
     <!--.triptych-->
     <div class="triptych-wrapper">
       <section class="l-triptych row">
-        <h2>Hvorfor bruge FindBedemanden ?</h2>
+        <h1>Hvorfor bruge FindBedemanden ?</h1>
         <div class="triptych-first large-4 columns">
           <?php print render($page['triptych_first']); ?>
         </div>
@@ -125,6 +135,7 @@
   <!--Steps 123-->
     <section class="steps">
       <div class="row">
+        <h3>Sadan fungerer FindBedemanden</h3>
         <div class="step step1 large-4 columns">
           <img src="http://localhost/fib/sites/default/files/dummy/step1.jpg" width="177" heigh="177" alt="" />
           <p class="step-description">Udfyld formularen med de ydelser du gerne vil have</p>
@@ -140,7 +151,7 @@
       </div>
       <!--Second CTA-->
         <div class="large-4 large-centered columns">
-          <a href="#" class="button primary">Start her</a>
+          <a href="#" class="button primary radius">Start her</a>
           <p>Udfyld formularen med dine onsker, sa har du 3 tilbud i din mailindbakke, inden 24 timer.</p>
         </div>
       <!--/Second CTA-->
@@ -170,14 +181,14 @@
   <?php endif; ?>
 
   <!--.l-footer-->
-  <footer class="l-footer panel" role="contentinfo">
+  <footer class="l-footer" role="contentinfo">
     <?php if (!empty($page['footer'])): ?>
       <div class="footer large-12 columns">
         <?php print render($page['footer']); ?>
       </div>
     <?php endif; ?>
 
-    <?php if ($site_name) :?>
+    <?php if (!$site_name) :?>
       <div class="copyright large-12 columns">
         &copy; <?php print date('Y') . ' ' . check_plain($site_name) . ' ' . t('All rights reserved.'); ?>
       </div>
