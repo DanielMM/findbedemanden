@@ -151,6 +151,30 @@
     </div>
     <!--/.triptych -->
   <?php endif; ?>
+  <!--Steps 123-->
+    <section class="steps">
+      <div class="row">
+        <div class="step step1 large-4 columns">
+          <img src="http://localhost/fib/sites/default/files/dummy/step1.jpg" width="177" heigh="177" alt="" />
+          <p class="step-description">Udfyld formularen med de ydelser du gerne vil have</p>
+        </div>
+        <div class="step step2 large-4 columns">
+          <img src="http://localhost/fib/sites/default/files/dummy/step2.jpg" width="177" heigh="177" alt="" />
+          <p class="step-description">Modtag dine 3 tilbud og vaelg  den tilbud  du onsker</p>
+        </div>
+        <div class="step step3 large-4 columns">
+          <img src="http://localhost/fib/sites/default/files/dummy/step3.jpg" width="177" heigh="177" alt="" />
+          <p class="step-description">Bliv kontaktet af bedemanden</p>
+        </div>
+      </div>
+      <!--Second CTA-->
+        <div class="large-4 large-centered columns">
+          <a href="#" class="button primary">Start her</a>
+          <p>Udfyld formularen med dine onsker, sa har du 3 tilbud i din mailindbakke, inden 24 timer.</p>
+        </div>
+      <!--/Second CTA-->
+    </section>
+  <!--/Steps 123-->
 
   <?php if (!empty($page['footer_firstcolumn']) || !empty($page['footer_secondcolumn']) || !empty($page['footer_thirdcolumn']) || !empty($page['footer_fourthcolumn'])): ?>
     <!--.footer-columns -->
