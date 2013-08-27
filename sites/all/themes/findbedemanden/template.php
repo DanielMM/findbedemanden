@@ -100,6 +100,15 @@ function findbedemanden_form_element_label($variables) {
  return theme_form_element_label($variables);
 }
 
+function findbedemanden_theme(){
+  return array(
+    'request_node_form' => array(
+      'arguments' => array('form' => NULL),
+      'template' => 'templates/request-node-form',
+      'render element' => 'form'
+    ),
+  );
+}
 /**
  * Implements hook_preprocess_button().
  */
