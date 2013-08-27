@@ -176,20 +176,20 @@
     <!--/.footer-columns-->
   <?php endif; ?>
 
-  <!--.l-footer-->
+  <!--.l-footer--><!--
   <footer class="l-footer panel row" role="contentinfo">
-    <?php if (!empty($page['footer'])): ?>
+    <?php //if (!empty($page['footer'])): ?>
       <div class="footer large-12 columns">
-        <?php print render($page['footer']); ?>
+        <?php //print render($page['footer']); ?>
       </div>
-    <?php endif; ?>
+    <?php //endif; ?>
 
-    <?php if ($site_name) :?>
+    <?php //if ($site_name) :?>
       <div class="copyright large-12 columns">
-        &copy; <?php print date('Y') . ' ' . check_plain($site_name) . ' ' . t('All rights reserved.'); ?>
+        &copy; <?php //print date('Y') . ' ' . check_plain($site_name) . ' ' . t('All rights reserved.'); ?>
       </div>
-    <?php endif; ?>
-  </footer>
+    <?php //endif; ?>
+  </footer>-->
   <!--/.footer-->
 
   <?php if ($messages && $zurb_foundation_messages_modal): print $messages; endif; ?>
