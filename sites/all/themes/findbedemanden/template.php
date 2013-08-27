@@ -90,15 +90,15 @@
  * Implements theme_form_element_label()
  * Use foundation tooltips
  */
-//function findbedemanden_form_element_label($variables) {
-//  if (!empty($variables['element']['#title'])) {
-//    $variables['element']['#title'] = '<span class="secondary label">' . $variables['element']['#title'] . '</span>';
-//  }
-//  if (!empty($variables['element']['#description'])) {
-//    $variables['element']['#description'] = ' <span data-tooltip="top" class="has-tip tip-top" data-width="250" title="' . $variables['element']['#description'] . '">' . t('More information?') . '</span>';
-//  }
-//  return theme_form_element_label($variables);
-//}
+function findbedemanden_form_element_label($variables) {
+ /*if (!empty($variables['element']['#title'])) {
+   $variables['element']['#title'] = '<span class="secondary label">' . $variables['element']['#title'] . '</span>';
+ }
+ if (!empty($variables['element']['#description'])) {
+   $variables['element']['#description'] = ' <span data-tooltip="left" class="has-tip tip-left" data-width="250" title="' . $variables['element']['#description'] . '">' . t('More information?') . '</span>';
+ }*/
+ return theme_form_element_label($variables);
+}
 
 /**
  * Implements hook_preprocess_button().
