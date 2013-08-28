@@ -9,7 +9,7 @@
       <?php if ($top_bar_classes): ?>
       <div class="<?php print $top_bar_classes; ?>">
       <?php endif; ?>
-        <nav class="top-bar"<?php print $top_bar_options; ?>>
+        <nav class="top-bar row"<?php print $top_bar_options; ?>>
           <ul class="title-area">
             <li class="name"><h1><?php print $linked_site_name; ?></h1></li>
             <li class="toggle-topbar menu-icon"><a href="#"><span><?php print $top_bar_menu_text; ?></span></a></li>
@@ -85,34 +85,36 @@
     <!--/.l-help -->
   <?php endif; ?>
 
-  <main role="main" class="row l-main">
-    <div class="<?php print $main_grid; ?> main columns">
-      <?php if (!empty($page['highlighted'])): ?>
-        <div class="highlight panel callout">
-          <?php print render($page['highlighted']); ?>
-        </div>
-      <?php endif; ?>
-
-      <a id="main-content"></a>
-
-      <?php //print render($page['content']); ?>
-      <!--Main CTA-->
-        <section class="main-cta">
-          <div class="row">
-            <div class="large-6 large-offset-1 columns content">
-              <h1>Modtag tilbud fra 3 bedemand</h1>
-              <h2>Vi hjaelper dig med at finde 3 tilbud fra lokale bedemand - Gratis og uforpilgtende.</h2>
-              <a href="#" class="button primary radius large-7">Start her</a>
-              <p>Udfyld formularen med dine onsker, sa har du 3 tilbud i din mailindbakke, inden 24 timer.</p>
-            </div>
+  <div class="main-wrapper">
+    <main role="main" class="row l-main">
+      <div class="<?php print $main_grid; ?> main columns">
+        <?php if (!empty($page['highlighted'])): ?>
+          <div class="highlight panel callout">
+            <?php print render($page['highlighted']); ?>
           </div>
-        </section>
-      <!--/Main CTA-->
-    </div>
-    <!--/.main region -->
+        <?php endif; ?>
 
-  </main>
-  <!--/.main-->
+        <a id="main-content"></a>
+
+        <?php //print render($page['content']); ?>
+        <!--Main CTA-->
+          <section class="main-cta">
+            <div class="row">
+              <div class="large-6 large-offset-1 columns content">
+                <h1>Modtag tilbud fra 3 bedemand</h1>
+                <h2>Vi hjaelper dig med at finde 3 tilbud fra lokale bedemand - Gratis og uforpilgtende.</h2>
+                <a href="#" class="button primary radius large-7">Start her</a>
+                <p>Udfyld formularen med dine onsker, sa har du 3 tilbud i din mailindbakke, inden 24 timer.</p>
+              </div>
+            </div>
+          </section>
+        <!--/Main CTA-->
+      </div>
+      <!--/.main region -->
+
+    </main>
+    <!--/.main-->
+  </div>
 
   <?php if (!empty($page['triptych_first']) || !empty($page['triptych_middle']) || !empty($page['triptych_last'])): ?>
     <!--.triptych-->
