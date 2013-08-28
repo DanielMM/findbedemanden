@@ -9,17 +9,17 @@
       <?php if ($top_bar_classes): ?>
       <div class="<?php print $top_bar_classes; ?>">
       <?php endif; ?>
-        <nav class="top-bar"<?php print $top_bar_options; ?>>
+        <nav class="top-bar row"<?php print $top_bar_options; ?>>
           <ul class="title-area">
-            <li class="name"><h1><?php print $linked_site_name; ?></h1></li>
+            <li class="name"><h1><?php print $linked_logo; ?></h1></li>
             <li class="toggle-topbar menu-icon"><a href="#"><span><?php print $top_bar_menu_text; ?></span></a></li>
           </ul>
           <section class="top-bar-section">
+           <?php if ($top_bar_secondary_menu) :?>
+              <?php print $top_bar_secondary_menu; ?>
+            <?php endif; ?>
             <?php if ($top_bar_main_menu) :?>
               <?php print $top_bar_main_menu; ?>
-            <?php endif; ?>
-            <?php if ($top_bar_secondary_menu) :?>
-              <?php print $top_bar_secondary_menu; ?>
             <?php endif; ?>
           </section>
         </nav>
@@ -96,7 +96,7 @@
 
       <a id="main-content"></a>
 
-      <?php if ($breadcrumb): print $breadcrumb; endif; ?>
+      <?php //if ($breadcrumb): print $breadcrumb; endif; ?>
 
       <?php if ($title && !$is_front): ?>
         <?php print render($title_prefix); ?>
@@ -150,29 +150,26 @@
   <?php endif; ?>
 
   <?php if (!empty($page['footer_firstcolumn']) || !empty($page['footer_secondcolumn']) || !empty($page['footer_thirdcolumn']) || !empty($page['footer_fourthcolumn'])): ?>
-    <!--.footer-columns -->
-    <section class="row l-footer-columns">
-      <?php if (!empty($page['footer_firstcolumn'])): ?>
-        <div class="footer-first large-3 columns">
-          <?php print render($page['footer_firstcolumn']); ?>
-        </div>
-      <?php endif; ?>
-      <?php if (!empty($page['footer_secondcolumn'])): ?>
-        <div class="footer-second large-3 columns">
-          <?php print render($page['footer_secondcolumn']); ?>
-        </div>
-      <?php endif; ?>
-      <?php if (!empty($page['footer_thirdcolumn'])): ?>
-        <div class="footer-third large-3 columns">
-          <?php print render($page['footer_thirdcolumn']); ?>
-        </div>
-      <?php endif; ?>
-      <?php if (!empty($page['footer_fourthcolumn'])): ?>
-        <div class="footer-fourth large-3 columns">
-          <?php print render($page['footer_fourthcolumn']); ?>
-        </div>
-      <?php endif; ?>
-    </section>
+     <!--.footer-columns -->
+    <div class="footer-columns-wrapper">
+      <section class="row l-footer-columns">
+        <?php if (!empty($page['footer_firstcolumn'])): ?>
+          <div class="footer-first large-4 columns">
+            <?php print render($page['footer_firstcolumn']); ?>
+          </div>
+        <?php endif; ?>
+        <?php if (!empty($page['footer_secondcolumn'])): ?>
+          <div class="footer-second large-4 columns">
+            <?php print render($page['footer_secondcolumn']); ?>
+          </div>
+        <?php endif; ?>
+        <?php if (!empty($page['footer_thirdcolumn'])): ?>
+          <div class="footer-third large-4 columns">
+            <?php print render($page['footer_thirdcolumn']); ?>
+          </div>
+        <?php endif; ?>
+      </section>
+    </div>
     <!--/.footer-columns-->
   <?php endif; ?>
 
