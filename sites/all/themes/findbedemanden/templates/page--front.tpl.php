@@ -102,7 +102,7 @@
             <div class="large-6 large-offset-1 columns content">
               <h1>Modtag tilbud fra 3 bedemand</h1>
               <h2>Vi hjaelper dig med at finde 3 tilbud fra lokale bedemand - Gratis og uforpilgtende.</h2>
-              <a href="#" class="button primary radius full-width">Start her</a>
+              <a href="#" class="button primary radius large-7">Start her</a>
               <p>Udfyld formularen med dine onsker, sa har du 3 tilbud i din mailindbakke, inden 24 timer.</p>
             </div>
           </div>
@@ -150,8 +150,8 @@
         </div>
       </div>
       <!--Second CTA-->
-        <div class="large-4 large-centered columns">
-          <a href="#" class="button primary radius">Start her</a>
+        <div class="large-4 large-centered columns second-cta">
+          <a href="#" class="button primary radius large-8">Start her</a>
           <p>Udfyld formularen med dine onsker, sa har du 3 tilbud i din mailindbakke, inden 24 timer.</p>
         </div>
       <!--/Second CTA-->
@@ -160,23 +160,25 @@
 
   <?php if (!empty($page['footer_firstcolumn']) || !empty($page['footer_secondcolumn']) || !empty($page['footer_thirdcolumn']) || !empty($page['footer_fourthcolumn'])): ?>
     <!--.footer-columns -->
-    <section class="row l-footer-columns">
-      <?php if (!empty($page['footer_firstcolumn'])): ?>
-        <div class="footer-first large-4 columns">
-          <?php print render($page['footer_firstcolumn']); ?>
-        </div>
-      <?php endif; ?>
-      <?php if (!empty($page['footer_secondcolumn'])): ?>
-        <div class="footer-second large-4 columns">
-          <?php print render($page['footer_secondcolumn']); ?>
-        </div>
-      <?php endif; ?>
-      <?php if (!empty($page['footer_thirdcolumn'])): ?>
-        <div class="footer-third large-4 columns">
-          <?php print render($page['footer_thirdcolumn']); ?>
-        </div>
-      <?php endif; ?>
-    </section>
+    <div class="footer-columns-wrapper">
+      <section class="row l-footer-columns">
+        <?php if (!empty($page['footer_firstcolumn'])): ?>
+          <div class="footer-first large-4 columns">
+            <?php print render($page['footer_firstcolumn']); ?>
+          </div>
+        <?php endif; ?>
+        <?php if (!empty($page['footer_secondcolumn'])): ?>
+          <div class="footer-second large-4 columns">
+            <?php print render($page['footer_secondcolumn']); ?>
+          </div>
+        <?php endif; ?>
+        <?php if (!empty($page['footer_thirdcolumn'])): ?>
+          <div class="footer-third large-4 columns">
+            <?php print render($page['footer_thirdcolumn']); ?>
+          </div>
+        <?php endif; ?>
+      </section>
+    </div>
     <!--/.footer-columns-->
   <?php endif; ?>
 

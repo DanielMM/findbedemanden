@@ -1,0 +1,30 @@
+.main-cta .content { background: #F6F6F6; border-radius: 9px; border: 1px solid #F1F1F1; text-align: center; }
+.main-cta .content h1 {	font-size: 2em;	font-weight: normal; }
+.main-cta .content h2 {	font-size: 1.5em; font-weight: normal; }
+.main-cta .content p { display: inline-block; font-size: 0.9em;	width: 66%; }
+
+.l-triptych, .steps { text-align: center; }
+
+.triptych-wrapper { background: #a6c2cd; color: white; padding-bottom: 2em; }
+.l-triptych h1, .l-triptych h2 { color: white; font-weight: normal; }
+.l-triptych h1 { font-size: 2em; margin: 1.1em; }
+.l-triptych h2 { font-size: 1.5em; }
+
+.l-triptych p { padding: 0 38px; }
+
+.steps { background: #ac8b89; padding: 2em 0; }
+.steps h3 { color: white; font-weight: normal; margin-bottom: 1em; }
+.steps p { color: white; }
+.steps .step img { border: 3px solid #DDD; }
+.steps .step p { padding: 0 3em; }
+
+.second-cta { margin: 2em auto; }
+.second-cta .button { margin-bottom: 0.3em; }
+.second-cta p { font-size: 0.9em; padding: 0 3em; }
+
+.footer-columns-wrapper { background: #3b3b3b; }
+.l-footer-columns p { color: white; font-size: 0.75em; }
+.footer-first { padding-top: 3em; }
+.footer-second { background: url('/fib/sites/default/files/dummy/rene.png') 4em 0.6em no-repeat; min-height: 100px; }
+.footer-second p { padding: 1em 2em 0 12em; }
+.footer-third p { padding: 1em 0 0; text-align: center; }

@@ -31,6 +31,8 @@ stylesheets[all][] = css/app.css
 ; Comment the app.css file (above) if you're using sass to preprocess css:
 stylesheets[all][] = css/custom.css
 
+; Add my stylesheet file
+stylesheets[all][] = css/my.css
 ; Foundation JavaScript.
 ;
 ; These files are all commented out. If you choose to disable the default
