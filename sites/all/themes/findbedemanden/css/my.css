@@ -1,4 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Enriqueta:400,700);
+html,
+body { color: #FFF; }
 .l-header, .top-bar, .top-bar-section ul.main-nav { background: #3b3b3b; }
 
 .top-bar-section .main-nav li a,
@@ -11,12 +13,12 @@
 .main-cta .content { background: rgba(255,255,255, 0.5); border-radius: 9px; box-shadow: 0 1px 0 1px rgba(0,0,0,0.1); text-align: center; }
 .main-cta .content h1 { font-family: "Enriqueta"; font-size: 2em; font-weight: normal; }
 .main-cta .content h2 {	font-family: "Enriqueta"; font-size: 1.3em; font-weight: normal; }
-.main-cta .content p { display: inline-block; font-size: 0.9em;	width: 63%; }
+.main-cta .content p { color: #000; display: inline-block; font-size: 0.9em; width: 63%; }
 
 .l-triptych, .steps { text-align: center; }
 
-.triptych-wrapper { font-family: "Enriqueta"; background: #a6c2cd; color: white; padding-bottom: 2em; }
-.l-triptych h1, .l-triptych h2 { font-family: "Enriqueta"; color: white; font-weight: normal; }
+.triptych-wrapper { font-family: "Enriqueta"; background: #a6c2cd; padding-bottom: 2em; }
+.l-triptych h1, .l-triptych h2 { color: #FFF; font-family: "Enriqueta"; font-weight: normal; }
 .l-triptych h1 { font-size: 2em; margin: 1.1em; }
 .l-triptych h2 { font-size: 1.5em; margin-top: 0; }
 
@@ -24,20 +26,19 @@
 
 .steps { background: #ac8b89; font-family: "Enriqueta"; padding: 2em 0; }
 .steps h3 { color: white; font-family: "Enriqueta"; font-size: 2em; font-weight: normal; margin-bottom: 1em; }
-.steps p { color: white; }
 .steps .step img { border: 3px solid #DDD; }
 .steps .step p { padding: 0 1em; }
 .steps .step1 img,
-.steps .step1 p {margin-left: 3em; }
+.steps .step1 p { margin-left: 3em; }
 .steps .step3 img,
-.steps .step3 p {margin-right: 3em; }
+.steps .step3 p { margin-right: 3em; }
 
 .second-cta { margin: 2em auto; }
 .second-cta .button { margin-bottom: 0.3em; }
 .second-cta p { font-size: 0.9em; padding: 0 3em; }
 
 .footer-columns-wrapper {font-family: "Enriqueta"; background: #3b3b3b; }
-.l-footer-columns p { color: white; font-size: 0.75em; line-height: 1.4em; }
+.l-footer-columns p { font-size: 0.75em; line-height: 1.4em; }
 .footer-first { padding-top: 3em; }
 .footer-first .logo-footer {background: url('/fib/sites/default/files/dummy/logo-small.png') 0 1px no-repeat; display: inline-block; height: 20px; padding-left: 125px; width: 100%; }
 .footer-second { background: url('/fib/sites/default/files/dummy/rene.png') 4em 0.6em no-repeat; min-height: 100px; }
