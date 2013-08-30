@@ -1,6 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Enriqueta:400,700);
 html,
-body { color: #FFF; }
+body { color: #FFF; font-family: "Enriqueta"; }
+h1,h2,h3,h4,h5,h6 { font-family: "Enriqueta"; }
 .l-header, .top-bar, .top-bar-section ul.main-nav { background: #3b3b3b; }
 
 .top-bar-section .main-nav li a,
@@ -11,21 +12,21 @@ body { color: #FFF; }
 
 .main-cta { margin-top: 85px; }
 .main-cta .content { background: rgba(255,255,255, 0.5); border-radius: 9px; box-shadow: 0 1px 0 1px rgba(0,0,0,0.1); text-align: center; }
-.main-cta .content h1 { font-family: "Enriqueta"; font-size: 2em; font-weight: normal; }
-.main-cta .content h2 {	font-family: "Enriqueta"; font-size: 1.3em; font-weight: normal; }
+.main-cta .content h1 { font-size: 2em; font-weight: normal; }
+.main-cta .content h2 {	font-size: 1.3em; font-weight: normal; }
 .main-cta .content p { color: #000; display: inline-block; font-size: 0.9em; width: 63%; }
 
 .l-triptych, .steps { text-align: center; }
 
-.triptych-wrapper { font-family: "Enriqueta"; background: #a6c2cd; padding-bottom: 2em; }
-.l-triptych h1, .l-triptych h2 { color: #FFF; font-family: "Enriqueta"; font-weight: normal; }
+.triptych-wrapper { background: #a6c2cd; padding-bottom: 2em; }
+.l-triptych h1, .l-triptych h2 { color: #FFF; font-weight: normal; }
 .l-triptych h1 { font-size: 2em; margin: 1.1em; }
 .l-triptych h2 { font-size: 1.5em; margin-top: 0; }
 
 .l-triptych p { padding: 0 28px; line-height: 1.2em; }
 
-.steps { background: #ac8b89; font-family: "Enriqueta"; padding: 2em 0; }
-.steps h3 { color: white; font-family: "Enriqueta"; font-size: 2em; font-weight: normal; margin-bottom: 1em; }
+.steps { background: #ac8b89; padding: 2em 0; }
+.steps h3 { color: #FFF; font-size: 2em; font-weight: normal; margin-bottom: 1em; }
 .steps .step img { border: 3px solid #DDD; }
 .steps .step p { padding: 0 1em; }
 .steps .step1 img,
@@ -37,7 +38,29 @@ body { color: #FFF; }
 .second-cta .button { margin-bottom: 0.3em; }
 .second-cta p { font-size: 0.9em; padding: 0 3em; }
 
-.footer-columns-wrapper {font-family: "Enriqueta"; background: #3b3b3b; }
+/* Add request form page */
+label { color: #FFF; font-size: 1.25em; }
+.form-item { margin-bottom: 2em; }
+.field-name-field-lawyer .form-type-checkbox { display: inline-block; }
+.form-item-field-lawyer-und-0 { margin-right: 3em; }
+.form-item input[type="checkbox"] { margin: 0 0.5em 0.3em 0; }
+.form-item input[type="checkbox"] {  }
+.form-item label.option { font-size: 1em; }
+.form-item .description { font-size: 0.75em; }
+
+[id~=edit-field-post-nr],
+[id~=edit-field-city] { display: inline-block; }
+
+[id~=edit-field-name] .form-item,
+[id~=edit-field-post-nr] .form-item,
+[id~=edit-field-city] .form-item,
+[id~=edit-field-email] .form-item,
+[id~=edit-field-telephone] .form-item { margin-bottom: 0; margin-top: 0; }
+
+.form-required { display: none; }
+/*=======================*/
+
+.footer-columns-wrapper { background: #3b3b3b; }
 .l-footer-columns p { font-size: 0.75em; line-height: 1.4em; }
 .footer-first { padding-top: 3em; }
 .footer-first .logo-footer {background: url('/fib/sites/default/files/dummy/logo-small.png') 0 1px no-repeat; display: inline-block; height: 20px; padding-left: 125px; width: 100%; }
