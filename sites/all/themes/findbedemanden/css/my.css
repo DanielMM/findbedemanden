@@ -5,11 +5,9 @@ h1,h2,h3,h4,h5,h6 { font-family: "Enriqueta"; }
 .l-header, .top-bar, .top-bar-section ul.main-nav { background: #3b3b3b; }
 
 .top-bar { height: 60px; }
-.top-bar .title-area,
-.top-bar .main-nav,
-.top-bar .secondary { margin-top: 5px; }
+.top-bar .title-area { margin-top: 5px; }
 .top-bar-section .main-nav li a,
-.top-bar-section .secondary li a {background: #3b3b3b; }
+.top-bar-section .secondary li a { background: #3b3b3b; line-height: 60px; }
 .top-bar { margin-bottom: 0; }
 .page { background: #ac8b89; }
 .main-wrapper { background: #937d7c url("/fib/sites/default/files/dummy/banner.png") center 0 no-repeat; font-family: "Enriqueta"; min-height: 422px; }
@@ -39,13 +37,13 @@ h1,h2,h3,h4,h5,h6 { font-family: "Enriqueta"; }
 .steps .step3 p { margin-right: 3em; }
 
 .second-cta { margin: 2em auto; }
-.second-cta .button { margin-bottom: 0.3em; }
+.second-cta .button { margin-bottom: 0.3em; max-width: 50%; }
 .second-cta p { font-size: 0.9em; padding: 0 3em; }
 
 /* Add request form page */
 label { color: #FFF; font-size: 1.25em; margin-bottom: 0.4em; }
 .form-item { margin-bottom: 2em; }
-.form-select { background: #FFF url("/fib/sites/default/files/dummy/drop-arrow.png") right 1px no-repeat; border: 1px solid rgba(0, 0, 0, 0.4); border-radius: 8px; padding: 0.5em 0 0.5em 0.5em; -webkit-appearance: none; width: 380px;}
+.form-select { background: #FFF url("/sites/default/files/dummy/drop-arrow.png") right 1px no-repeat; border: 1px solid rgba(0, 0, 0, 0.4); border-radius: 8px; padding: 0.5em 0 0.5em 0.5em; -webkit-appearance: none; width: 380px;}
 .form-type-textfield .form-text { border-radius: 6px; padding: 1.4em; }
 
 select.form-select,
@@ -78,7 +76,7 @@ input.form-text { color: #595959; }
 /* Blocks on the add request form page */
 .sidebar-second { padding-right: 0; }
 
-.block-block-7 .support-wrapper { background: #937d7c url('/fib/sites/default/files/dummy/rene-support.png') 85px -30px no-repeat; display: inline-block; height: 145px; }
+.block-block-7 .support-wrapper { background: #937d7c url('/sites/default/files/dummy/rene-support.png') 85px -30px no-repeat; display: inline-block; height: 145px; }
 
 .block .block-title { color: #FFF; font-size: 1.25em; font-weight: 400; }
 .block-block-8 ul { list-style: none; }
@@ -87,9 +85,9 @@ input.form-text { color: #595959; }
 .block .step-text { display: inline-block; margin-left: 20px; }
 .block .step-3 .step-text { max-width: 150px; }
 
-.block-block-9 ul li { background: url('/fib/sites/default/files/dummy/tick.png') no-repeat left center; list-style: none; margin-bottom: 1em; padding-left: 33px; }
+.block-block-9 ul li { background: url('/sites/default/files/dummy/tick.png') no-repeat left center; list-style: none; margin-bottom: 1em; padding-left: 33px; }
 .block-block-7,
-.block-block-8 h2
+.block-block-8 h2,
 .block-block-9 { margin-left: -15px; }
 /*=====================================*/
 
@@ -98,8 +96,8 @@ input.form-text { color: #595959; }
 .footer-columns-wrapper { background: #3b3b3b; }
 .l-footer-columns p { font-size: 0.75em; line-height: 1.4em; }
 .footer-first { padding-top: 3em; }
-.footer-first .logo-footer {background: url('/fib/sites/default/files/dummy/logo-small.png') 0 0 no-repeat; display: inline-block; height: 20px; padding-left: 135px; width: 100%; }
-.footer-second { background: url('/fib/sites/default/files/dummy/rene.png') 4em 0.6em no-repeat; min-height: 100px; }
+.footer-first .logo-footer {background: url('/sites/default/files/dummy/logo-small.png') 0 0 no-repeat; display: inline-block; height: 20px; padding-left: 135px; width: 100%; }
+.footer-second { background: url('/sites/default/files/dummy/rene.png') 4em 0.6em no-repeat; min-height: 100px; }
 .footer-second p { padding: 2em 2em 0 12em; }
 .footer-second p span { display: block; }
 .footer-third p { padding: 2em 0 0; text-align: center; }

@@ -103,7 +103,7 @@
               <div class="large-6 large-offset-1 columns content">
                 <h1>Modtag tilbud fra 3 bedemand</h1>
                 <h2>Vi hjaelper dig med at finde 3 tilbud fra lokale bedemand - Gratis og uforpilgtende.</h2>
-                <a href="#" class="button primary radius large-7">Start her</a>
+                <a href="/node/add/request" class="button primary radius large-7">Start her</a>
                 <p>Udfyld formularen med dine onsker, sa har du 3 tilbud i din mailindbakke, inden 24 timer.</p>
               </div>
             </div>
@@ -139,21 +139,21 @@
       <div class="row">
         <h3>Sadan fungerer FindBedemanden</h3>
         <div class="step step1 large-4 columns">
-          <img src="http://localhost/fib/sites/default/files/dummy/step1.jpg" width="177" heigh="177" alt="" />
+          <img src="/sites/default/files/dummy/step1.jpg" width="177" heigh="177" alt="" />
           <p class="step-description">Udfyld formularen med de ydelser du gerne vil have</p>
         </div>
         <div class="step step2 large-4 columns">
-          <img src="http://localhost/fib/sites/default/files/dummy/step2.jpg" width="177" heigh="177" alt="" />
+          <img src="/sites/default/files/dummy/step2.jpg" width="177" heigh="177" alt="" />
           <p class="step-description">Modtag dine 3 tilbud og vaelg  den tilbud  du onsker</p>
         </div>
         <div class="step step3 large-4 columns">
-          <img src="http://localhost/fib/sites/default/files/dummy/step3.jpg" width="177" heigh="177" alt="" />
+          <img src="/sites/default/files/dummy/step3.jpg" width="177" heigh="177" alt="" />
           <p class="step-description">Bliv kontaktet af bedemanden</p>
         </div>
       </div>
       <!--Second CTA-->
         <div class="large-4 large-centered columns second-cta">
-          <a href="#" class="button primary radius large-8">Start her</a>
+          <a href="/node/add/request" class="button primary radius large-8">Start her</a>
           <p>Udfyld formularen med dine onsker, sa har du 3 tilbud i din mailindbakke, inden 24 timer.</p>
         </div>
       <!--/Second CTA-->
