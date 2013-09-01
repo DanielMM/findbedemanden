@@ -11,8 +11,8 @@ h1,h2,h3,h4,h5,h6 { font-family: "Enriqueta"; }
 .top-bar-section .main-nav li a,
 .top-bar-section .secondary li a {background: #3b3b3b; }
 .top-bar { margin-bottom: 0; }
-.page { background: #937d7c; }
-.main-wrapper { background: url("/fib/sites/default/files/dummy/banner.png") center 0 no-repeat; font-family: "Enriqueta"; min-height: 422px; }
+.page { background: #ac8b89; }
+.main-wrapper { background: #937d7c url("/fib/sites/default/files/dummy/banner.png") center 0 no-repeat; font-family: "Enriqueta"; min-height: 422px; }
 
 .main-cta { margin-top: 85px; }
 .main-cta .content { background: rgba(255,255,255, 0.5); border-radius: 9px; box-shadow: 0 1px 0 1px rgba(0,0,0,0.1); text-align: center; }
@@ -43,8 +43,14 @@ h1,h2,h3,h4,h5,h6 { font-family: "Enriqueta"; }
 .second-cta p { font-size: 0.9em; padding: 0 3em; }
 
 /* Add request form page */
-label { color: #FFF; font-size: 1.25em; }
+label { color: #FFF; font-size: 1.25em; margin-bottom: 0.4em; }
 .form-item { margin-bottom: 2em; }
+.form-select { background: #FFF url("/fib/sites/default/files/dummy/drop-arrow.png") right 1px no-repeat; border: 1px solid rgba(0, 0, 0, 0.4); border-radius: 8px; padding: 0.5em 0 0.5em 0.5em; -webkit-appearance: none; width: 380px;}
+.form-type-textfield .form-text { border-radius: 6px; padding: 1.4em; }
+
+select.form-select,
+input.form-text { color: #595959; }
+
 .field-name-field-lawyer .form-type-checkbox { display: inline-block; }
 .form-item-field-lawyer-und-0 { margin-right: 3em; }
 .form-item input[type="checkbox"] { margin: 0 0.5em 0.3em 0; }
@@ -61,7 +67,32 @@ label { color: #FFF; font-size: 1.25em; }
 [id~=edit-field-email] .form-item,
 [id~=edit-field-telephone] .form-item { margin-bottom: 0; margin-top: 0; }
 
+[id~=edit-field-name] label,
+[id~=edit-field-post-nr] label,
+[id~=edit-field-city] label,
+[id~=edit-field-email] label,
+[id~=edit-field-telephone] label { margin-bottom: 0; }
+
 .form-required { display: none; }
+.node-request-form .form-submit { max-width: 50%; }
+/* Blocks on the add request form page */
+.sidebar-second { padding-right: 0; }
+
+.block-block-7 .support-wrapper { background: #937d7c url('/fib/sites/default/files/dummy/rene-support.png') 85px -30px no-repeat; display: inline-block; height: 145px; }
+
+.block .block-title { color: #FFF; font-size: 1.25em; font-weight: 400; }
+.block-block-8 ul { list-style: none; }
+.block-block-8 .step { margin-bottom: 1em; }
+.block .step-nr { background: #b6cee4; border-radius: 5px; font-size: 1.8em; padding: 0px 15px 5px 15px; vertical-align: top; }
+.block .step-text { display: inline-block; margin-left: 20px; }
+.block .step-3 .step-text { max-width: 150px; }
+
+.block-block-9 ul li { background: url('/fib/sites/default/files/dummy/tick.png') no-repeat left center; list-style: none; margin-bottom: 1em; padding-left: 33px; }
+.block-block-7,
+.block-block-8 h2
+.block-block-9 { margin-left: -15px; }
+/*=====================================*/
+
 /*=======================*/
 
 .footer-columns-wrapper { background: #3b3b3b; }
