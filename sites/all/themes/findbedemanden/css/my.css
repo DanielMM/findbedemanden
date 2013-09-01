@@ -4,6 +4,10 @@ body { color: #FFF; font-family: "Enriqueta"; }
 h1,h2,h3,h4,h5,h6 { font-family: "Enriqueta"; }
 .l-header, .top-bar, .top-bar-section ul.main-nav { background: #3b3b3b; }
 
+.top-bar { height: 60px; }
+.top-bar .title-area,
+.top-bar .main-nav,
+.top-bar .secondary { margin-top: 5px; }
 .top-bar-section .main-nav li a,
 .top-bar-section .secondary li a {background: #3b3b3b; }
 .top-bar { margin-bottom: 0; }
@@ -63,7 +67,7 @@ label { color: #FFF; font-size: 1.25em; }
 .footer-columns-wrapper { background: #3b3b3b; }
 .l-footer-columns p { font-size: 0.75em; line-height: 1.4em; }
 .footer-first { padding-top: 3em; }
-.footer-first .logo-footer {background: url('/fib/sites/default/files/dummy/logo-small.png') 0 1px no-repeat; display: inline-block; height: 20px; padding-left: 125px; width: 100%; }
+.footer-first .logo-footer {background: url('/fib/sites/default/files/dummy/logo-small.png') 0 0 no-repeat; display: inline-block; height: 20px; padding-left: 135px; width: 100%; }
 .footer-second { background: url('/fib/sites/default/files/dummy/rene.png') 4em 0.6em no-repeat; min-height: 100px; }
 .footer-second p { padding: 2em 2em 0 12em; }
 .footer-second p span { display: block; }
