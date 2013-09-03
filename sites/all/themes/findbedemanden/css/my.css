@@ -49,6 +49,8 @@ label { color: #FFF; font-size: 1.25em; margin-bottom: 0.4em; }
 select.form-select,
 input.form-text { color: #595959; }
 
+select.form-select:focus { outline: transparent; }
+
 .field-name-field-lawyer .form-type-checkbox { display: inline-block; }
 .form-item-field-lawyer-und-0 { margin-right: 3em; }
 .form-item input[type="checkbox"] { margin: 0 0.5em 0.3em 0; }
@@ -65,19 +67,13 @@ input.form-text { color: #595959; }
 [id~=edit-field-email] .form-item,
 [id~=edit-field-telephone] .form-item { margin-bottom: 0; margin-top: 0; }
 
-[id~=edit-field-name] label,
-[id~=edit-field-post-nr] label,
-[id~=edit-field-city] label,
-[id~=edit-field-email] label,
-[id~=edit-field-telephone] label { margin-bottom: 0; }
-
 .form-required { display: none; }
 .node-request-form .form-submit { max-width: 50%; }
 /* Blocks on the add request form page */
 .sidebar-second { padding-right: 0; }
 
-.block-block-7 .support-wrapper { background: #937d7c url('/sites/default/files/dummy/rene-support.png') 85px -30px no-repeat; display: inline-block; height: 145px; }
-
+.block-block-7 .support-wrapper { background: url('/fib/sites/default/files/dummy/support.png') 0 0 no-repeat; display: inline-block; height: 175px; }
+.block-block-7 .support-background { display: inline-block; padding: 1.5em 0 0 1em; }
 .block .block-title { color: #FFF; font-size: 1.25em; font-weight: 400; }
 .block-block-8 ul { list-style: none; }
 .block-block-8 .step { margin-bottom: 1em; }
