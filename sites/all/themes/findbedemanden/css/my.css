@@ -10,7 +10,7 @@ h1,h2,h3,h4,h5,h6 { font-family: "Enriqueta"; }
 .top-bar-section .secondary li a { background: #3b3b3b; line-height: 60px; }
 .top-bar { margin-bottom: 0; }
 .page { background: #ac8b89; }
-.main-wrapper { background: #937d7c url("/fib/sites/default/files/dummy/banner.png") center 0 no-repeat; font-family: "Enriqueta"; min-height: 422px; }
+.main-wrapper { background: #937d7c url("/sites/default/files/dummy/banner.png") center 0 no-repeat; font-family: "Enriqueta"; min-height: 422px; }
 
 .main-cta { margin-top: 85px; }
 .main-cta .content { background: rgba(255,255,255, 0.5); border-radius: 9px; box-shadow: 0 1px 0 1px rgba(0,0,0,0.1); text-align: center; }
@@ -72,12 +72,12 @@ select.form-select:focus { outline: transparent; }
 /* Blocks on the add request form page */
 .sidebar-second { padding-right: 0; }
 
-.block-block-7 .support-wrapper { background: url('/fib/sites/default/files/dummy/support.png') 0 0 no-repeat; display: inline-block; height: 175px; }
+.block-block-7 .support-wrapper { background: url('/sites/default/files/dummy/support.png') 0 0 no-repeat; display: inline-block; height: 175px; }
 .block-block-7 .support-background { display: inline-block; padding: 1.5em 0 0 1em; }
 .block .block-title { color: #FFF; font-size: 1.25em; font-weight: 400; }
 .block-block-8 ul { list-style: none; }
 .block-block-8 .step { margin-bottom: 1em; }
-.block .step-nr { background: #b6cee4; border-radius: 5px; font-size: 1.8em; padding: 0px 15px 5px 15px; vertical-align: top; }
+.block .step-nr { background: #b6cee4; border-radius: 5px; display: inline-block; font-family: "sans-serif"; font-size: 1.5em; margin-top: 4px; padding: 5px 0 2px 17px; vertical-align: top; }
 .block .step-text { display: inline-block; margin-left: 20px; }
 .block .step-3 .step-text { max-width: 150px; }
 
