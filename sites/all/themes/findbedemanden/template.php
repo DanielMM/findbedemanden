@@ -182,3 +182,15 @@ function findbedemanden_links__topbar_main_menu($variables) {
 
   return '<ul' . drupal_attributes($variables['attributes']) . '>' . $output . '</ul>';
 }
+
+function findbedemanden_form_alter(&$form, &$form_state, $form_id) {
+    switch ($form_id) {
+        case 'request_node_form':
+            if ($form['nid']['#value'] != '') {
+                drupal_set_title("Edit ".$form['title']['#default_value']);
+            } else {
+                drupal_set_title("Udfyld formularen, så finder vi 3 tilbud til dig. Helt gratis og uforpligtende.");
+            }
+        break;
+    }
+}
