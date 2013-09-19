@@ -84,7 +84,7 @@ select.form-select:focus { outline: transparent; }
 .block .step-nr { background: #b6cee4; border-radius: 5px; display: inline-block; font-family: "sans-serif"; font-size: 1.5em; margin-top: 4px; padding: 5px 0 2px 17px; vertical-align: top; }
 .block .step-text { display: inline-block; margin-left: 20px; }
 .block .step-3 .step-text { max-width: 150px; }
-.block { margin-bottom: 2em; }
+.sidebar-second > .block { margin-bottom: 2em; }
 .block-block-9 ul li { background: url('/sites/default/files/dummy/tick.png') no-repeat left center; list-style: none; margin-bottom: 1em; padding-left: 33px; }
 .block-block-7,
 .block-block-8 h2,
