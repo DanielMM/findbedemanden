@@ -17,7 +17,7 @@ $form['field_city']['und']['0']['value']['#title'] = '';
 $form['field_email']['und']['0']['value']['#title'] = '';
 $form['field_telephone']['und']['0']['value']['#title'] = '';*/
 
-$form['actions']['submit']['#attributes'] = array('class' => array('large-8', 'large-offset-2'));
+$form['actions']['submit']['#attributes'] = array('class' => array('large-8', 'large-offset-2', 'cta-button'));
 $form['actions']['submit']['#value'] = t('Modtag dine gratis tilbud');
 
 print drupal_render_children($form);

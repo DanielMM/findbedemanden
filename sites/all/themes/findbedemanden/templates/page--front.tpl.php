@@ -103,7 +103,7 @@
               <div class="large-6 large-offset-1 columns content">
                 <h1>Modtag tilbud fra 3 bedemænd</h1>
                 <h2>Vi hjælper dig med at finde 3 tilbud fra lokale bedemænd - Gratis og uforpligtende.</h2>
-                <a href="/node/add/request" class="button primary radius large-7">Start her</a>
+                <a href="/node/add/request" class="cta-button button primary radius large-7">Start her</a>
                 <p>Udfyld formularen med dine ønsker, så har du 3 tilbud i din e-mailindbakke, indenfor 24 timer.</p>
               </div>
             </div>
@@ -153,7 +153,7 @@
       </div>
       <!--Second CTA-->
         <div class="large-4 large-centered columns second-cta">
-          <a href="/node/add/request" class="button primary radius large-8">Start her</a>
+          <a href="/node/add/request" class="cta-button button primary radius large-8">Start her</a>
           <p>Udfyld formularen med dine ønsker, så har du 3 tilbud i din e-mailindbakke, indenfor 24 timer.</p>
         </div>
       <!--/Second CTA-->
