@@ -102,9 +102,9 @@
             <div class="row">
               <div class="large-6 large-offset-1 columns content">
                 <h1>Modtag tilbud fra 3 bedemænd</h1>
-                <h2>Vi hjælper dig med at finde 3 tilbud fra lokale bedemænd - Gratis og uforpilgtende.</h2>
+                <h2>Vi hjælper dig med at finde 3 tilbud fra lokale bedemænd - Gratis og uforpligtende.</h2>
                 <a href="/node/add/request" class="button primary radius large-7">Start her</a>
-                <p>Udfyld formularen med dine ønsker, så har du 3 tilbud i din mailindbakke, inden 24 timer.</p>
+                <p>Udfyld formularen med dine ønsker, så har du 3 tilbud i din e-mailindbakke, indenfor 24 timer.</p>
               </div>
             </div>
           </section>
@@ -144,7 +144,7 @@
         </div>
         <div class="step step2 large-4 columns">
           <img src="/sites/default/files/dummy/step2.jpg" width="177" heigh="177" alt="" />
-          <p class="step-description">Modtag dine 3 tilbud og vaelg den tilbud du ønsker</p>
+          <p class="step-description">Modtag dine 3 tilbud og vælg det tilbud du ønsker</p>
         </div>
         <div class="step step3 large-4 columns">
           <img src="/sites/default/files/dummy/step3.jpg" width="177" heigh="177" alt="" />
@@ -154,7 +154,7 @@
       <!--Second CTA-->
         <div class="large-4 large-centered columns second-cta">
           <a href="/node/add/request" class="button primary radius large-8">Start her</a>
-          <p>Udfyld formularen med dine onsker, sa har du 3 tilbud i din mailindbakke, indenfor 24 timer.</p>
+          <p>Udfyld formularen med dine ønsker, så har du 3 tilbud i din e-mailindbakke, indenfor 24 timer.</p>
         </div>
       <!--/Second CTA-->
     </section>

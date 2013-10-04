@@ -16,7 +16,7 @@ h1,h2,h3,h4,h5,h6 { font-family: "Enriqueta"; }
 .main-cta .content { background: rgba(255,255,255, 0.5); border-radius: 9px; box-shadow: 0 1px 0 1px rgba(0,0,0,0.1); text-align: center; }
 .main-cta .content h1 { font-size: 2em; font-weight: normal; }
 .main-cta .content h2 {	font-size: 1.3em; font-weight: normal; }
-.main-cta .content p { color: #000; display: inline-block; font-size: 0.9em; width: 63%; }
+.main-cta .content p { color: #000; display: inline-block; font-size: 0.9em; width: 68%; }
 
 .l-triptych, .steps { text-align: center; }
 
@@ -76,8 +76,8 @@ select.form-select:focus { outline: transparent; }
 /* Blocks on the add request form page */
 .sidebar-second { padding-right: 0; }
 
-.block-block-7 .support-wrapper { background: url('/sites/default/files/dummy/support.png') 0 0 no-repeat; display: inline-block; height: 175px; margin-top: -20px; }
-.block-block-7 .support-background { display: inline-block; padding: 1.5em 0 0 1em; }
+/*.block-block-7 .support-wrapper { background: url('/sites/default/files/dummy/support.png') 0 0 no-repeat; display: inline-block; height: 175px; margin-top: -20px; }*/
+.block-block-7 .support-background { line-height: 1.2em; }
 .block .block-title { color: #FFF; font-size: 1.25em; font-weight: 400; }
 .block-block-8 ul { list-style: none; }
 .block-block-8 .step { margin-bottom: 1em; }
@@ -98,6 +98,6 @@ select.form-select:focus { outline: transparent; }
 .footer-first { padding-top: 3em; }
 .footer-first .logo-footer {background: url('/sites/default/files/dummy/logo-small.png') 0 0 no-repeat; display: inline-block; height: 20px; padding-left: 135px; width: 100%; }
 .footer-second { background: url('/sites/default/files/dummy/rene.png') 4em 0.6em no-repeat; min-height: 100px; }
-.footer-second p { padding: 2em 2em 0 12em; }
+.footer-second p { padding: 2em 1em 0 12em; }
 .footer-second p span { display: block; }
 .footer-third p { padding: 2em 0 0; text-align: center; }
