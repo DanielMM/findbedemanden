@@ -184,13 +184,34 @@ function findbedemanden_links__topbar_main_menu($variables) {
 }
 
 function findbedemanden_form_alter(&$form, &$form_state, $form_id) {
-    switch ($form_id) {
-        case 'request_node_form':
-            if ($form['nid']['#value'] != '') {
-                drupal_set_title("Edit ".$form['title']['#default_value']);
-            } else {
-                drupal_set_title("Udfyld formularen, så finder vi 3 tilbud til dig. Helt gratis og uforpligtende.");
-            }
-        break;
-    }
+  switch ($form_id) {
+    case 'request_node_form':
+      if ($form['nid']['#value'] != '') {
+          drupal_set_title("Edit ".$form['title']['#default_value']);
+      } else {
+          drupal_set_title("Udfyld formularen, så finder vi 3 tilbud til dig. Helt gratis og uforpligtende.");
+      }
+    break;
+  }
+}
+
+function findbedemanden_form_contact_site_form_alter(&$form, &$form_state, $form_id) {
+    
+  drupal_set_title("Har du ris, ros eller blot et spørgsmål er du altid velkommen til at kontakte os her");
+
+
+  $form['subject']['#value'] = 'Kontact fra findbedemanden.dk';
+  
+  $form['name']['#title'] = "Din navn";
+  $form['mail']['#title'] = "Din mailadresse";
+  $form['message']['#title'] = "Besked";
+
+  //$form['name']['#attributes'] = array('class' => array('large-3'));
+  //$form['mail']['#attributes'] = array('class' => array('large-3'));
+  //$form['mail']['#attributes'] = array('class' => array('large-3'), 'placeholder' => 'email@example.com');
+  $form['message']['#attributes'] = array('rows' => '8');
+  
+  $form['actions']['submit']['#attributes'] = array('class' => array('large-5','cta-button','right'));
+  $form['actions']['submit']['#value'] = "Send";
+
 }

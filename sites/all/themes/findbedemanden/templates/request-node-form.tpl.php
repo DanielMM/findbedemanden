@@ -5,6 +5,7 @@ $form['field_method']['#attributes'] = array('class' => array('large-8', 'large-
 $form['field_name']['#attributes'] = array('class' => array('large-8', 'large-offset-2'));
 $form['field_lawyer']['#attributes'] = array('class' => array('large-8', 'large-offset-2'));
 $form['field_wishes']['#attributes'] = array('class' => array('large-8', 'large-offset-2'));
+$form['field_extras']['#attributes'] = array('class' => array('large-8', 'large-offset-2'));
 $form['field_post_nr']['#attributes'] = array('class' => array('large-2', 'large-offset-2'));
 $form['field_city']['#attributes'] = array('class' => array('large-5', 'large-offset-1'));
 $form['field_email']['#attributes'] = array('class' => array('large-8', 'large-offset-2'));
