@@ -139,15 +139,15 @@
       <div class="row">
         <h3>Sådan fungerer FindBedemanden</h3>
         <div class="step step1 large-4 columns">
-          <img src="/sites/default/files/dummy/step1.jpg" width="177" heigh="177" alt="" />
+          <img src="/sites/default/files/images/emailbedemand.jpg" width="177" heigh="177" alt="" />
           <p class="step-description">Udfyld formularen med de ydelser du gerne vil have</p>
         </div>
         <div class="step step2 large-4 columns">
-          <img src="/sites/default/files/dummy/step2.jpg" width="177" heigh="177" alt="" />
+          <img src="/sites/default/files/images/formbedemand.jpg" width="177" heigh="177" alt="" />
           <p class="step-description">Modtag dine 3 tilbud og vælg det tilbud du ønsker</p>
         </div>
         <div class="step step3 large-4 columns">
-          <img src="/sites/default/files/dummy/step3.jpg" width="177" heigh="177" alt="" />
+          <img src="/sites/default/files/images/kontaktbedemand.jpg" width="177" heigh="177" alt="" />
           <p class="step-description">Bliv kontaktet af bedemanden</p>
         </div>
       </div>
