@@ -13,10 +13,11 @@
 @import "normalize";
 // Comment out this import below if you are customizing you imports below.
 @import "foundation";
-
+// Comment out this import if you don't want to use Compass.
+@import "compass";
 
 // Or optionally, if you require only portions of Zurb Foundation (at your own
-// risk):
+// risk), comment the above Foundation import and uncomment the ones below.
 
 /* Each individual part that can be added in */
 // @import "foundation/components/global";
@@ -54,7 +55,3 @@
 // @import "foundation/components/thumbs";
 // @import "foundation/components/tooltips";
 // @import "foundation/components/dropdown";
-
-
-// Optionally, add compass as well
-// @import compass;

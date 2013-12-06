@@ -57,8 +57,6 @@
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 
-  <!-- @todo convert fallback into head alter function -->
-  <!-- Check for Zepto support, load jQuery if necessary -->
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
   <div class="skip-link">
@@ -67,6 +65,7 @@
   <?php print $page_top; ?>
   <?php print $page; ?>
   <?php print $page_bottom; ?>
+  <?php print _zurb_foundation_add_reveals(); ?>
   <script>
     (function ($, Drupal, window, document, undefined) {
       $(document).foundation();

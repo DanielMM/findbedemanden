@@ -267,10 +267,10 @@ function _zurb_foundation_render_link($link) {
 /**
  * Theme function to render a single top bar menu link.
  */
-  function theme_zurb_foundation_menu_link($variables) {
-    $link = $variables['link'];
-    return l($link['#title'], $link['#href'], $link['#localized_options']);
-  }
+function theme_zurb_foundation_menu_link($variables) {
+  $link = $variables['link'];
+  return l($link['#title'], $link['#href'], $link['#localized_options']);
+}
 /*
  * Implements hook_preprocess_block()
  */
@@ -294,16 +294,16 @@ function zurb_foundation_preprocess_block(&$variables) {
     // Clear blocks in this region
     case 'sidebar_first':
       $variables['classes_array'][] = 'clearfix';
-    break;
+      break;
     // Add a striping class & clear blocks in this region
     case 'sidebar_second':
       $variables['classes_array'][] = 'block-' . $variables['zebra'];
       $variables['classes_array'][] = 'clearfix';
-    break;
+      break;
 
     case 'header':
       $variables['classes_array'][] = 'header';
-    break;
+      break;
 
     default;
   }
@@ -354,7 +354,7 @@ function zurb_foundation_preprocess_field(&$variables) {
             $item_classes[] = 'description';
             break;
         }
-      break;
+        break;
     }
   }
 
@@ -537,7 +537,7 @@ function zurb_foundation_preprocess_page(&$variables) {
       'path'  => $variables['logo'],
       'alt'   => strip_tags($variables['site_name']) . ' ' . t('logo'),
       'title' => strip_tags($variables['site_name']) . ' ' . t('Home'),
-            'attributes' => array(
+      'attributes' => array(
         'class' => array('logo'),
       ),
     ));
@@ -590,7 +590,9 @@ function zurb_foundation_preprocess_page(&$variables) {
     }
 
     if ($back_text = theme_get_setting('zurb_foundation_top_bar_back_text')) {
-      $top_bar_options[] = "back_text:'{$back_text}'";
+      if ($back_text !== 'Back') {
+        $top_bar_options[] = "back_text:'{$back_text}'";
+      }
     }
 
     if (!theme_get_setting('zurb_foundation_top_bar_is_hover')) {
@@ -601,9 +603,7 @@ function zurb_foundation_preprocess_page(&$variables) {
       $top_bar_options[] = 'scrolltop:false';
     }
 
-    if (!empty($top_bar_options)) {
-      $variables['top_bar_options'] = ' data-options="' . implode('; ', $top_bar_options) . '"';
-    }
+    $variables['top_bar_options'] = ' data-options="' . implode('; ', $top_bar_options) . '"';
   }
 
   // Alternative header.
@@ -710,30 +710,13 @@ function zurb_foundation_preprocess_page(&$variables) {
 }
 
 /**
- * Implements template_preprocess_views_view().
- */
-function zurb_foundation_preprocess_views_view(&$variables) {
-
-}
-
-/**
  * Implements hook_css_alter()
  */
 function zurb_foundation_css_alter(&$css) {
   // Remove defaults.css file.
   unset($css[drupal_get_path('module', 'system') . '/system.menus.css']);
 
-  // Remove base theme CSS.
-  if(theme_get_setting('zurb_foundation_disable_base_css')) {
-    $theme_path = drupal_get_path('theme', 'zurb_foundation');
-
-    foreach($css as $path => $values) {
-      if(strpos($path, $theme_path) === 0) {
-        unset($css[$path]);
-      }
-    }
-  }
-
+  // Remove Drupal core CSS.
   if (theme_get_setting('zurb_foundation_disable_core_css')) {
     foreach($css as $path => $values) {
       if(strpos($path, 'modules/') === 0) {
@@ -757,16 +740,6 @@ function zurb_foundation_js_alter(&$js) {
 
     if (!version_compare($jquery_version, '1.7', '>=')) {
       drupal_set_message(t('Incorrect jQuery version detected. Zurb Foundation requires jQuery 1.7 or higher. Please change your <a href="!settings">jQuery Update settings</a>.', array('!settings' => url('admin/config/development/jquery_update'))), 'error', FALSE);
-    }
-  }
-
-  // Remove base theme CSS.
-  if(theme_get_setting('zurb_foundation_disable_base_js') == TRUE) {
-    $theme_path = drupal_get_path('theme', 'zurb_foundation');
-    foreach($js as $path => $values) {
-      if(strpos($path, $theme_path) === 0) {
-        unset($js[$path]);
-      }
     }
   }
 
@@ -883,7 +856,7 @@ function zurb_foundation_pager($variables) {
     $pager_links = array(
       '#theme' => 'item_list',
       '#items' => $items,
-      '#attributes' => array('class' => array('pagination')),
+      '#attributes' => array('class' => array('pagination', 'pager')),
     );
 
     if (theme_get_setting('zurb_foundation_pager_center')) {
@@ -917,7 +890,8 @@ function zurb_foundation_theme() {
       // The path for the link's href property. This is only really useful if
       // you want to set 'ajax' to TRUE (see above).
       'path' => FALSE,
-      // The content for the reveal modal.
+      // The content for the reveal modal. Can be either a string or a render
+      // array.
       'reveal' => '',
       // Extra classes to add to the link.
       'link_classes_array' => array('zurb-foundation-reveal'),
@@ -946,7 +920,6 @@ function zurb_foundation_theme() {
  *   An array of all reveal render arrays.
  *
  * @see theme_zurb_foundation_reveal()
- * @see zurb_foundation_preprocess_region()
  */
 function _zurb_foundation_reveal($reveal = NULL) {
   $reveals = &drupal_static(__FUNCTION__);
@@ -978,6 +951,12 @@ function theme_zurb_foundation_reveal($variables) {
   $reveal_id = 'zf-reveal-' . ++$counter;
   $variables['reveal_classes_array'][] = 'reveal-modal';
   $reveal_classes = implode(' ', $variables['reveal_classes_array']);
+
+  // Render reveal contents if applicable.
+  if (is_array($variables['reveal'])) {
+    $variables['reveal'] = drupal_render($variables['reveal']);
+  }
+
   $reveal = array(
     '#markup' => $variables['reveal'],
     '#prefix' => '<div id="' . $reveal_id . '" class="' . $reveal_classes . '">',
@@ -1014,11 +993,9 @@ function theme_zurb_foundation_reveal($variables) {
 }
 
 /**
- * Implements hook_page_alter().
- *
  * Add the reveal modal markup (if any) to the page_bottom region.
  */
-function zurb_foundation_page_alter(&$page) {
+function _zurb_foundation_add_reveals() {
   $markup = '';
 
   // Retrieve reveal markup from static storage.
@@ -1026,9 +1003,7 @@ function zurb_foundation_page_alter(&$page) {
     $markup .= "\n" . drupal_render($reveal);
   }
 
-  if (!empty($markup)) {
-    $page['page_bottom']['zurb_foundation_reveal'] = array('#markup' => $markup);
-  }
+  return $markup;
 }
 
 /**
@@ -1093,7 +1068,7 @@ function zurb_foundation_entity_variables(&$vars) {
       case 'zf_2col_stacked':
         if (
           empty($vars['header_classes']) && empty($vars['left_classes'])
-            && empty($vars['right_classes']) && empty($vars['footer_classes'])
+          && empty($vars['right_classes']) && empty($vars['footer_classes'])
         ) {
           $vars['header_classes'] = ' large-12';
           $vars['left_classes'] = ' large-6';
@@ -1103,9 +1078,9 @@ function zurb_foundation_entity_variables(&$vars) {
         break;
       case 'zf_2col_bricks':
         if (empty($vars['top_classes']) && empty($vars['above_left_classes'])
-            && empty($vars['above_right_classes']) && empty($vars['middle_classes'])
-            && empty($vars['below_left_classes']) && empty($vars['below_right_classes'])
-            && empty($vars['bottom_classes'])
+          && empty($vars['above_right_classes']) && empty($vars['middle_classes'])
+          && empty($vars['below_left_classes']) && empty($vars['below_right_classes'])
+          && empty($vars['bottom_classes'])
         ) {
           $vars['top_classes'] = ' large-12';
           $vars['above_left_classes'] = ' large-6';
@@ -1118,7 +1093,7 @@ function zurb_foundation_entity_variables(&$vars) {
         break;
       case 'zf_3col':
         if (empty($vars['left_classes']) && empty($vars['middle_classes'])
-            && empty($vars['right_classes'])
+          && empty($vars['right_classes'])
         ) {
           $vars['left_classes'] = ' large-4';
           $vars['middle_classes'] = ' large-4';
@@ -1158,7 +1133,7 @@ function zurb_foundation_entity_variables(&$vars) {
         break;
       case 'zf_3row':
         if (empty($vars['header_classes']) && empty($vars['ds_content_classes'])
-            && empty($vars['footer_classes'])
+          && empty($vars['footer_classes'])
         ) {
           $vars['header_classes'] = ' large-12';
           $vars['ds_content_classes'] = ' large-12';
@@ -1167,7 +1142,7 @@ function zurb_foundation_entity_variables(&$vars) {
         break;
       case 'zf_4col':
         if (empty($vars['first_classes']) && empty($vars['second_classes'])
-            && empty($vars['third_classes']) && empty($vars['fourth_classes'])
+          && empty($vars['third_classes']) && empty($vars['fourth_classes'])
         ) {
           $vars['first_classes'] = ' large-3';
           $vars['second_classes'] = ' large-3';
@@ -1210,6 +1185,25 @@ function zurb_foundation_entity_variables(&$vars) {
           $vars['bottom_classes'] = ' large-12';
         }
         break;
+    }
+  }
+}
+
+/**
+ * Implements hook_process_html_tag()
+ *
+ * Prunes HTML tags: http://sonspring.com/journal/html5-in-drupal-7#_pruning
+ */
+function zurb_foundation_process_html_tag(&$vars) {
+  if (theme_get_setting('zurb_foundation_html_tags')) {
+    $el = &$vars['element'];
+
+    // Remove type="..." and CDATA prefix/suffix.
+    unset($el['#attributes']['type'], $el['#value_prefix'], $el['#value_suffix']);
+
+    // Remove media="all" but leave others unaffected.
+    if (isset($el['#attributes']['media']) && $el['#attributes']['media'] === 'all') {
+      unset($el['#attributes']['media']);
     }
   }
 }

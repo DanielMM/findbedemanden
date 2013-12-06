@@ -5,13 +5,16 @@
  */
 function zurb_foundation_form_alter(&$form, &$form_state, $form_id) {
   // Id's of forms that should be ignored
-  // @TODO Make this configurable?
   $form_ids = array(
     'node_form',
     'system_site_information_settings',
     'user_profile_form',
     'node_delete_confirm',
+    'views_ui_edit_form',
   );
+
+  // Allow other modules to alter this.
+  drupal_alter('zurb_foundation_ignored_forms', $form_ids);
 
   // Only wrap in container for certain form
   if (isset($form['#form_id']) && !in_array($form['#form_id'], $form_ids) && !isset($form['#node_edit_form'])) {
@@ -33,6 +36,31 @@ function zurb_foundation_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id === 'edit_field_form') {
     $form['actions']['submit']['#attributes']['class'][] = 'edit-form-submit';
   }
+
+  // Add tooltips to form elements.
+  if (theme_get_setting('zurb_foundation_tooltip_enable')
+    && theme_get_setting('zurb_foundation_tooltip_mode') === 'element') {
+    // Get tooltip settings.
+    $position = theme_get_setting('zurb_foundation_tooltip_position');
+    $touch = theme_get_setting('zurb_foundation_tooltip_touch');
+
+    foreach (element_children($form) as $item) {
+      foreach (element_children($form[$item]) as $i) {
+        $element =& $form[$item][$i];
+
+        if (!empty($element['#description'])) {
+          $element['#attributes']['data-tooltip'] = NULL;
+          $element['#attributes']['class'][] = 'has-tip';
+          $element['#attributes']['class'][] = $position;
+          $element['#attributes']['title'] = $element['#description'];
+
+          if ($touch) {
+            $element['#attributes']['data-options'] = 'disable-for-touch:true';
+          }
+        }
+      }
+    }
+  }
 }
 /**
  * Implements theme_form_element_label()
@@ -41,8 +69,20 @@ function zurb_foundation_form_element_label($variables) {
   if (!empty($variables['element']['#title'])) {
     $variables['element']['#title'] = '<label>' . $variables['element']['#title'] . '</label>';
   }
-  if (!empty($variables['element']['#description'])) {
-    $variables['element']['#description'] = ' <span data-tooltip class="has-tip tip-top" data-width="250" title="' . strip_tags($variables['element']['#description']) . '">' . t('More information?') . '</span>';
+
+  // Check whether we want to add tooltips.
+  if (!empty($variables['element']['#description']) && theme_get_setting('zurb_foundation_tooltip_enable')) {
+    // Check whether we're adding in a "More information?" text.
+    if (theme_get_setting('zurb_foundation_tooltip_mode') === 'text') {
+      $text = theme_get_setting('zurb_foundation_tooltip_text');
+      $position = theme_get_setting('zurb_foundation_tooltip_position');
+      $touch = theme_get_setting('zurb_foundation_tooltip_touch') ? 'data-options="disable-for-touch:true"' : '';
+      $variables['element']['#description'] = ' <span data-tooltip ' . $touch . 'class="has-tip ' . $position . '" title="' . strip_tags($variables['element']['#description']) . '">' . t($text) . '</span>';
+    }
+    else {
+      // Hide description field, we add it directly to the form element's "title" attribute.
+      $variables['element']['#description'] = '';
+    }
   }
   return theme_form_element_label($variables);
 }
@@ -81,7 +121,7 @@ function _zurb_foundation_element_whitelist() {
  * from certain modifications made by the bootstrap theme which
  * break core functionality - e.g. ajax.
  */
-  return array(
+  $whitelist = array(
     'edit-refresh',
     'edit-pass-pass1',
     'edit-pass-pass2',
@@ -91,4 +131,9 @@ function _zurb_foundation_element_whitelist() {
     'panelizer-save-default',
     'panelizer-ipe-revert',
   );
+
+  // Allow other modules and themes to alter return value.
+  drupal_alter('zurb_foundation_element_whitelist', $whitelist);
+
+  return $whitelist;
 }
