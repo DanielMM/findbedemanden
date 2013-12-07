@@ -149,7 +149,8 @@ font-weight: normal;
 }
 
 .main-nav li.first a,
-.main-nav li.first a:hover { border-radius: 0; }
+.main-nav li.first a:hover { border-radius: 0; line-height: 58px; }
+
 .contact-form .form-item { display: inline-block; }
 .contact-form .form-item-name,
 .contact-form .form-item-mail { margin: 1em 0 0; width: 326px; }
