@@ -119,6 +119,8 @@ select.form-select:focus { outline: transparent; }
 .faq ul li { line-height: 1.4em; list-style-type: none; margin-bottom: 30px; }
 .node-type-simple-page aside.sidebar-second { padding-top: 10.4em; }
 
+
+.main-nav li.first a,
 .button.cta-button,
 .cta-button.form-submit { background: #c8daec; /* Old browsers */
 background: -moz-linear-gradient(top,  #c8daec 0%, #b8cfe6 4%, #92a1b0 98%, #76838e 100%); /* FF3.6+ */
@@ -132,6 +134,7 @@ border: 1px solid #76838e; border-radius: 5px; text-shadow: 1px 1px 1px #8797a5;
 font-weight: normal;
 }
 
+.main-nav li.first a:hover,
 .button.cta-button:hover,
 .cta-button.form-submit:hover {	background: #b4c5d7; /* Old browsers */
 background: -moz-linear-gradient(top,  #b4c5d7 0%, #a4bbd2 4%, #7e8d9c 98%, #626f7a 100%); /* FF3.6+ */
@@ -145,6 +148,8 @@ border: 1px solid #626f7a; border-radius: 5px; text-shadow: 1px 1px 1px #8797a5;
 font-weight: normal;
 }
 
+.main-nav li.first a,
+.main-nav li.first a:hover { border-radius: 0; }
 .contact-form .form-item { display: inline-block; }
 .contact-form .form-item-name,
 .contact-form .form-item-mail { margin: 1em 0 0; width: 326px; }
