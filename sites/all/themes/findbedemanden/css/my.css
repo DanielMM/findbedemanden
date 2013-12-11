@@ -149,7 +149,7 @@ font-weight: normal;
 }
 
 .main-nav li.first a,
-.main-nav li.first a:hover { border-radius: 0; display: inline; padding: 7px 15px; }
+.main-nav li.first a:hover { display: inline; padding: 7px 15px; }
 
 .contact-form .form-item { display: inline-block; }
 .contact-form .form-item-name,
