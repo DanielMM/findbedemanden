@@ -149,7 +149,7 @@ font-weight: normal;
 }
 
 .main-nav li.first a,
-.main-nav li.first a:hover { display: inline; padding: 7px 15px; }
+.main-nav li.first a:hover { border-width: 0; display: inline; margin-right: 15px; padding: 7px 15px; text-decoration: none; }
 
 .contact-form .form-item { display: inline-block; }
 .contact-form .form-item-name,
@@ -160,3 +160,9 @@ font-weight: normal;
 .contact-form .form-type-textarea .form-textarea { height: inherit; }
 .contact-form .form-item-subject,
 .contact-form .form-item-copy { display: none; }
+
+/* Thank you page */
+.page-node-35 .body{
+	width: 75%;
+	margin: 0 auto;
+}
