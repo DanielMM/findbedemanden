@@ -103,7 +103,7 @@
               <div class="large-6 large-offset-1 columns content">
                 <h1>Modtag tilbud fra 3 bedemænd</h1>
                 <h2>Vi hjælper dig med at finde 3 tilbud fra lokale bedemænd - Gratis og uforpligtende.</h2>
-                <a href="/node/add/request" class="cta-button button primary radius large-7">Start her</a>
+                <a href="/node/add/request" class="cta-button button primary radius large-7">Bestil tilbud</a>
                 <p>Udfyld formularen med dine ønsker, så har du 3 tilbud i din e-mailindbakke, indenfor 24 timer.</p>
               </div>
             </div>
@@ -153,53 +153,54 @@
       </div>
       <!--Second CTA-->
         <div class="large-4 large-centered columns second-cta">
-          <a href="/node/add/request" class="cta-button button primary radius large-8">Start her</a>
+          <a href="/node/add/request" class="cta-button button primary radius large-8">Bestil tilbud</a>
           <p>Udfyld formularen med dine ønsker, så har du 3 tilbud i din e-mailindbakke, indenfor 24 timer.</p>
         </div>
       <!--/Second CTA-->
     </section>
   <!--/Steps 123-->
 
-  <?php if (!empty($page['footer_firstcolumn']) || !empty($page['footer_secondcolumn']) || !empty($page['footer_thirdcolumn']) || !empty($page['footer_fourthcolumn'])): ?>
-    <!--.footer-columns -->
-    <div class="footer-columns-wrapper">
-      <section class="row l-footer-columns">
-        <?php if (!empty($page['footer_firstcolumn'])): ?>
-          <div class="footer-first large-4 columns">
-            <?php print render($page['footer_firstcolumn']); ?>
-          </div>
-        <?php endif; ?>
-        <?php if (!empty($page['footer_secondcolumn'])): ?>
-          <div class="footer-second large-4 columns">
-            <?php print render($page['footer_secondcolumn']); ?>
-          </div>
-        <?php endif; ?>
-        <?php if (!empty($page['footer_thirdcolumn'])): ?>
-          <div class="footer-third large-4 columns">
-            <?php print render($page['footer_thirdcolumn']); ?>
-          </div>
-        <?php endif; ?>
-      </section>
-    </div>
-    <!--/.footer-columns-->
-  <?php endif; ?>
-
-  <!--.l-footer-->
-  <footer class="l-footer" role="contentinfo">
-    <?php if (!empty($page['footer'])): ?>
-      <div class="footer large-12 columns">
-        <?php print render($page['footer']); ?>
-      </div>
-    <?php endif; ?>
-
-    <?php if (!$site_name) :?>
-      <div class="copyright large-12 columns">
-        &copy; <?php print date('Y') . ' ' . check_plain($site_name) . ' ' . t('All rights reserved.'); ?>
-      </div>
-    <?php endif; ?>
-  </footer>
-  <!--/.footer-->
-
   <?php if ($messages && $zurb_foundation_messages_modal): print $messages; endif; ?>
 </div>
 <!--/.page -->
+
+<?php if (!empty($page['footer_firstcolumn']) || !empty($page['footer_secondcolumn']) || !empty($page['footer_thirdcolumn']) || !empty($page['footer_fourthcolumn'])): ?>
+  <!--.footer-columns -->
+  <div class="footer-columns-wrapper">
+    <section class="row l-footer-columns">
+      <?php if (!empty($page['footer_firstcolumn'])): ?>
+        <div class="footer-first large-4 columns">
+          <?php print render($page['footer_firstcolumn']); ?>
+        </div>
+      <?php endif; ?>
+      <?php if (!empty($page['footer_secondcolumn'])): ?>
+        <div class="footer-second large-4 columns">
+          <?php print render($page['footer_secondcolumn']); ?>
+        </div>
+      <?php endif; ?>
+      <?php if (!empty($page['footer_thirdcolumn'])): ?>
+        <div class="footer-third large-4 columns">
+          <?php print render($page['footer_thirdcolumn']); ?>
+        </div>
+      <?php endif; ?>
+    </section>
+  </div>
+  <!--/.footer-columns-->
+<?php endif; ?>
+
+<!--.l-footer-->
+<footer class="l-footer" role="contentinfo">
+  <?php if (!empty($page['footer'])): ?>
+    <div class="footer large-12 columns">
+      <?php print render($page['footer']); ?>
+    </div>
+  <?php endif; ?>
+
+  <?php if (!$site_name) :?>
+    <div class="copyright large-12 columns">
+      &copy; <?php print date('Y') . ' ' . check_plain($site_name) . ' ' . t('All rights reserved.'); ?>
+    </div>
+  <?php endif; ?>
+</footer>
+<!--/.footer-->
+

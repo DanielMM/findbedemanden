@@ -149,46 +149,46 @@
     <!--/.triptych -->
   <?php endif; ?>
 
-  <?php if (!empty($page['footer_firstcolumn']) || !empty($page['footer_secondcolumn']) || !empty($page['footer_thirdcolumn']) || !empty($page['footer_fourthcolumn'])): ?>
-     <!--.footer-columns -->
-    <div class="footer-columns-wrapper">
-      <section class="row l-footer-columns">
-        <?php if (!empty($page['footer_firstcolumn'])): ?>
-          <div class="footer-first large-4 columns">
-            <?php print render($page['footer_firstcolumn']); ?>
-          </div>
-        <?php endif; ?>
-        <?php if (!empty($page['footer_secondcolumn'])): ?>
-          <div class="footer-second large-4 columns">
-            <?php print render($page['footer_secondcolumn']); ?>
-          </div>
-        <?php endif; ?>
-        <?php if (!empty($page['footer_thirdcolumn'])): ?>
-          <div class="footer-third large-4 columns">
-            <?php print render($page['footer_thirdcolumn']); ?>
-          </div>
-        <?php endif; ?>
-      </section>
-    </div>
-    <!--/.footer-columns-->
-  <?php endif; ?>
-
-  <!--.l-footer--><!--
-  <footer class="l-footer panel row" role="contentinfo">
-    <?php //if (!empty($page['footer'])): ?>
-      <div class="footer large-12 columns">
-        <?php //print render($page['footer']); ?>
-      </div>
-    <?php //endif; ?>
-
-    <?php //if ($site_name) :?>
-      <div class="copyright large-12 columns">
-        &copy; <?php //print date('Y') . ' ' . check_plain($site_name) . ' ' . t('All rights reserved.'); ?>
-      </div>
-    <?php //endif; ?>
-  </footer>-->
-  <!--/.footer-->
-
   <?php if ($messages && $zurb_foundation_messages_modal): print $messages; endif; ?>
 </div>
 <!--/.page -->
+<?php if (!empty($page['footer_firstcolumn']) || !empty($page['footer_secondcolumn']) || !empty($page['footer_thirdcolumn']) || !empty($page['footer_fourthcolumn'])): ?>
+   <!--.footer-columns -->
+  <div class="footer-columns-wrapper">
+    <section class="row l-footer-columns">
+      <?php if (!empty($page['footer_firstcolumn'])): ?>
+        <div class="footer-first large-4 columns">
+          <?php print render($page['footer_firstcolumn']); ?>
+        </div>
+      <?php endif; ?>
+      <?php if (!empty($page['footer_secondcolumn'])): ?>
+        <div class="footer-second large-4 columns">
+          <?php print render($page['footer_secondcolumn']); ?>
+        </div>
+      <?php endif; ?>
+      <?php if (!empty($page['footer_thirdcolumn'])): ?>
+        <div class="footer-third large-4 columns">
+          <?php print render($page['footer_thirdcolumn']); ?>
+        </div>
+      <?php endif; ?>
+    </section>
+  </div>
+  <!--/.footer-columns-->
+<?php endif; ?>
+
+<!--.l-footer--><!--
+<footer class="l-footer panel row" role="contentinfo">
+  <?php //if (!empty($page['footer'])): ?>
+    <div class="footer large-12 columns">
+      <?php //print render($page['footer']); ?>
+    </div>
+  <?php //endif; ?>
+
+  <?php //if ($site_name) :?>
+    <div class="copyright large-12 columns">
+      &copy; <?php //print date('Y') . ' ' . check_plain($site_name) . ' ' . t('All rights reserved.'); ?>
+    </div>
+  <?php //endif; ?>
+</footer>-->
+<!--/.footer-->
+
